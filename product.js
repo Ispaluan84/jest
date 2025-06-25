@@ -22,6 +22,14 @@ function addProduct(name, price) {
   products.push(product)
 }
 
+function removeProduct(productId) {
+    const index = products.findIndex(p => p.id === productId);
+    if (index === -1) {
+        throw new Error("Producto no encontrado");
+    }
+    products.splice(index, 1);
+}
+
 addProduct('manzana', 1)
 console.log(products)
 
@@ -30,4 +38,5 @@ module.exports = {
     resetProducts,
     addProduct,
     getProducts,
+    removeProduct
 }
